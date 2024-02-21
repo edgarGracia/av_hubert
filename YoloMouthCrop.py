@@ -54,22 +54,26 @@ class YoloMouthCrop:
 
 
 if __name__ == "__main__":
-    ap = argparse.ArgumentParser()
-    ap.add_argument(
-        "input",
-        help="Input video to crop"
-    )
-    ap.add_argument(
-        "output",
-        help="Output crop video",
-    )
-    ap.add_argument(
-        "--model",
-        help="Path to the YOLO model",
-        default="yolov8n-face.pt"
-    )
-    args = ap.parse_args()
-    crop_video_yolo(args.input, args.output, args.model)
+    yolo = YoloMouthCrop("")
+
+    # ap = argparse.ArgumentParser()
+    # ap.add_argument(
+    #     "input",
+    #     help="Input video to crop"
+    # )
+    # ap.add_argument(
+    #     "output",
+    #     help="Output crop video",
+    # )
+    # ap.add_argument(
+    #     "--model",
+    #     help="Path to the YOLO model",
+    #     default="yolov8n-face.pt"
+    # )
+    # args = ap.parse_args()
+    # crop_video_yolo(args.input, args.output, args.model)
+
+
     # face_predictor_path = "/content/data/misc/shape_predictor_68_face_landmarks.dat"
     # mean_face_path = "/content/data/misc/20words_mean_face.npy"
     # preprocess_video(args.input, args.output, face_predictor_path, mean_face_path)

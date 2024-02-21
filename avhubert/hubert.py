@@ -25,33 +25,23 @@ from fairseq.models.wav2vec.wav2vec2 import (
 from fairseq.modules import GradMultiply, LayerNorm
 from copy import deepcopy
 
-DBG=True if len(sys.argv) == 1 else False
 
-if DBG:
-    from hubert_pretraining import (
-        AVHubertPretrainingConfig,
-        AVHubertPretrainingTask,
-    )
-    from resnet import ResEncoder
-    logging.basicConfig(
-        format="%(asctime)s | %(levelname)s | %(name)s | %(message)s",
-        datefmt="%Y-%m-%d %H:%M:%S",
-        level=os.environ.get("LOGLEVEL", "INFO").upper(),
-        stream=sys.stdout,
-    )
-    from utils import compute_mask_indices
-    from decoder import TransformerDecoder
-
-else:
-    from .hubert_pretraining import (
-        AVHubertPretrainingConfig,
-        AVHubertPretrainingTask,
-    )
-    from .resnet import ResEncoder
-    from .utils import compute_mask_indices
-    from .decoder import TransformerDecoder
+from hubert_pretraining import (
+    AVHubertPretrainingConfig,
+    AVHubertPretrainingTask,
+)
+from resnet import ResEncoder
+logging.basicConfig(
+    format="%(asctime)s | %(levelname)s | %(name)s | %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S",
+    level=os.environ.get("LOGLEVEL", "INFO").upper(),
+    stream=sys.stdout,
+)
+from utils import compute_mask_indices
+from decoder import TransformerDecoder
 
 from omegaconf import II
+
 
 logger = logging.getLogger(__name__)
 

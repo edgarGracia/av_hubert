@@ -8,7 +8,6 @@ import itertools
 import logging
 import os
 import sys
-import time
 from typing import Any, List, Optional, Union
 
 import numpy as np
@@ -20,18 +19,15 @@ from fairseq.data.fairseq_dataset import FairseqDataset
 from python_speech_features import logfbank
 from scipy.io import wavfile
 
-DBG=True if len(sys.argv) == 1 else False
+import utils as custom_utils
 
-if DBG:
-    import utils as custom_utils
-    logging.basicConfig(
-        format="%(asctime)s | %(levelname)s | %(name)s | %(message)s",
-        datefmt="%Y-%m-%d %H:%M:%S",
-        level=os.environ.get("LOGLEVEL", "DEBUG").upper(),
-        stream=sys.stdout,
-    )
-else:
-    from . import utils as custom_utils
+
+logging.basicConfig(
+    format="%(asctime)s | %(levelname)s | %(name)s | %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S",
+    level=os.environ.get("LOGLEVEL", "DEBUG").upper(),
+    stream=sys.stdout,
+)
 
 logger = logging.getLogger(__name__)
 

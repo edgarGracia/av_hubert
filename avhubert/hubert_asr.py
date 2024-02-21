@@ -4,11 +4,10 @@
 # This source code is licensed under the license found in the
 # LICENSE file in the root directory of this source tree.
 
-import sys,logging
+import logging
 import contextlib
-import tempfile
 from argparse import Namespace
-from typing import Any, Optional
+from typing import Any
 
 import torch
 import torch.nn as nn
@@ -21,14 +20,8 @@ from fairseq.models.hubert.hubert import MASKING_DISTRIBUTION_CHOICES
 from fairseq.tasks import FairseqTask
 from omegaconf import II, MISSING
 
-DBG=True if len(sys.argv) == 1 else False
-
-if DBG:
-    from hubert import AVHubertModel
-    from decoder import TransformerDecoder
-else:
-    from .hubert import AVHubertModel
-    from .decoder import TransformerDecoder
+from hubert import AVHubertModel
+from decoder import TransformerDecoder
 
 logger = logging.getLogger(__name__)
 
