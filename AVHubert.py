@@ -4,8 +4,10 @@ import argparse
 from pathlib import Path
 import cv2
 import tempfile
-from pathlib import Path
+import numpy as np
 
+np.float=np.float64
+np.int=np.int32
 import fairseq
 from fairseq import checkpoint_utils, options, tasks, utils
 from fairseq.dataclass.configs import GenerationConfig
