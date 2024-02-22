@@ -31,7 +31,7 @@ RUN sed -i '/#force_color_prompt=yes/c\force_color_prompt=yes' /home/user/.bashr
 # Install python dependencies
 RUN python -m pip install --upgrade pip
 RUN python -m pip install --upgrade setuptools
-RUN python -m pip install numpy opencv-python==4.8.0.76 opencv-contrib-python==4.8.0.76
+RUN python -m pip install numpy opencv-python==4.8.0.76 opencv-contrib-python==4.8.0.76 ultralytics
 RUN python -m pip install torch==2.2.0 torchvision==0.17.0 torchaudio==2.2.0 --index-url https://download.pytorch.org/whl/cu118
 
 # Install av_hubert
